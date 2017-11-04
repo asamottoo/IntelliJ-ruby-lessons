@@ -1,0 +1,8 @@
+#!/bin/bash
+
+dir=`pwd`
+
+echo "Current directory is $dir"
+
+ps -ef | grep $dir | grep -v "grep" | awk '{ print $2 }' | xargs kill -9
+ps -ef | grep "puma" | grep -v "grep" | awk '{ print $2 }' | xargs kill -9
